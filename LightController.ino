@@ -1,4 +1,4 @@
-//This code was written by Andrew Simon. 
+//This code was written by Andrew. 
 //This project utilizes a relay board to control some sort of load. In this case, it is a 12v LED Strips. 
 //This code was originally intended to run on an Arduino Nano. 
 //Change
@@ -16,9 +16,8 @@ int relay2 = 12;
 //int relay1 = 10; //Optional 
 //int relay2 = 11; //Optional
 
-
+//This array will store the previous state values. 
 bool opt[4];
-bool relay[4];
 
 //Main Driver function. 
 void setup() {
