@@ -13,6 +13,9 @@ int opt3 = 5;//4
 int opt4 = 3;//5
 int relay1 = 7;
 int relay2 = 12;
+//int relay1 = 10; //Optional 
+//int relay2 = 11; //Optional
+
 
 bool opt[4];
 bool relay[4];
@@ -23,21 +26,24 @@ void setup() {
 	Serial.begin(9600);
 	//Defines the output pins and input pins. These may vary. 
 	//opt is the input on the input pad. 
-	//realy is the corresponding realy that we are controlling. 
+	//Relay is the corresponding Relay that we are controlling. 
 	pinMode(opt1, INPUT); 
 	pinMode(opt2, INPUT); 
 	pinMode(opt3, INPUT); 
 	pinMode(opt4, INPUT); 
 	pinMode(relay1, OUTPUT); 
 	pinMode(relay2, OUTPUT); 
+	//pinMode(relay3, OUTPUT); //Optional
+	//pinMode(relay4, OUTPUT); //Optional 
 
-	//Loops through each individual state and sets them to false. 
+	//Loops through each individual state and initializes them to false. 
 	for(int i = 0; i < 4; i++){
 		opt[i] = false;
 		relay[i] = false;
 	}
 
-	//Test the one relay by changing it's state. 
+	//Test the one relay by changing a state. 
+	//Because of code below, this is NOT a permanant state and will change in 500ms.
 	digitalWrite(relay1, HIGH);
 
 }
@@ -69,8 +75,10 @@ void loop() {
 	//Write or Sets the relay states to the correct pins. 
 	digitalWrite(relay1, opt[0]);
 	digitalWrite(relay2, opt[1]);
+	//digitalWrite(relay1, opt[2]); //Optional
+	//digitalWrite(relay2, opt[3]); //Optional 
 
-	//Prints out the states. For debugging purposes.
+	//Prints out the states via Serial. For debugging purposes.
 	for(int i = 0; i < 4; i++){
 		Serial.println(opt[i]);
 	}
