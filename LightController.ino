@@ -16,7 +16,7 @@ int relay2 = 12;
 //int relay1 = 10; //Optional 
 //int relay2 = 11; //Optional
 
-//This array will store the previous state values. 
+//This array will store the CURRENT state Relays. 
 bool opt[4];
 
 //Main Driver function. 
