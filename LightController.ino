@@ -38,7 +38,6 @@ void setup() {
 	//Loops through each individual state and initializes them to false. 
 	for(int i = 0; i < 4; i++){
 		opt[i] = false;
-		relay[i] = false;
 	}
 
 	//Test the one relay by changing a state. 
@@ -49,8 +48,9 @@ void setup() {
 
 void loop() {
 
+	//Define a temporary array to hold the states of the buttons when checking. 
 	//Getting input over a period of time to de-bounce the input. 
-	//Define an 2D boolean. 1D will hold the ID of the relay, and the other will hold it's current state. 
+	//Define an 2D boolean. 1D will hold the ID of the relay, and the other will hold it's previous state. 
 	bool tempOpt[4][2];
 
 	//Check the status of the input pad twice w/ a 500ms interval in between.
